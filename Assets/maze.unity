@@ -1807,7 +1807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 357758323}
-  speed: 1500
+  speed: 2000
   health: 5
 --- !u!1001 &366265383
 PrefabInstance:

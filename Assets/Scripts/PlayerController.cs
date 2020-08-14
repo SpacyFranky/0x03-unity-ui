@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,6 +22,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
 
+    }
+
+    // Update is called when health equals to 0.
+    void Update()
+    {
+        if (health == 0)
+        {
+            Debug.Log("Game Over!");
+            SceneManager.LoadScene("maze");
+            health = 0;
+            score = 0;
+        }
     }
 
     // Update is called once per frame
@@ -84,6 +97,10 @@ public class PlayerController : MonoBehaviour
         {
             health--;
             Debug.Log("Health: " + health);
+        }
+        if (other.gameObject.tag == "Goal")
+        {
+            Debug.Log("You win!");
         }
     }
 }
