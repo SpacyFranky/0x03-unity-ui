@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        // awsd keys
+        // WASD keys
         if (Input.GetKey("d"))
         {
             rb.AddForce(500 * Time.deltaTime, 0, 0);
