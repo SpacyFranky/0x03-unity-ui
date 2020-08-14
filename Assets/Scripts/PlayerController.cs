@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Public variable to store the rigidbody of the player 
+    // Public variable to store the rigidbody of the player gameobject.
     public Rigidbody rb;
 
-    // Public variable to store the movement speed of the gameobject player.
+    // Public variable to store the movement speed of the player gameobject.
     public float speed;
+
+    // Private vairable to store the score of the player gameobject.
+    private int score = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("I am alive!");
+
     }
 
     // Update is called once per frame
@@ -62,5 +65,16 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(0, 0, -500 * Time.deltaTime);
         }
+    }
+
+    // Increments the value of score when the Player touches an object tagged Pickup.
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Pickup")
+        {
+             other.gameObject.SetActive(false);
+             score++;
+        }
+        Debug.Log("Score: " + score);
     }
 }
