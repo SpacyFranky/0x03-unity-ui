@@ -13,6 +13,9 @@ public class PlayerController : MonoBehaviour
     // Private vairable to store the score of the player gameobject.
     private int score = 0;
 
+    // Public variable to store the health of the player gameobject.
+    public int health = 5;
+
 
     // Start is called before the first frame update
     void Start()
@@ -68,13 +71,19 @@ public class PlayerController : MonoBehaviour
     }
 
     // Increments the value of score when the Player touches an object tagged Pickup.
+    // Decrements the value of health when the Player touches an object tagged Trap.
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Pickup")
         {
-             other.gameObject.SetActive(false);
-             score++;
+            other.gameObject.SetActive(false);
+            score++;
+            Debug.Log("Score: " + score);
         }
-        Debug.Log("Score: " + score);
+        if (other.gameObject.tag == "Trap")
+        {
+            health--;
+            Debug.Log("Health: " + health);
+        }
     }
 }
