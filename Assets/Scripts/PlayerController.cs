@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    // Public variable to store the rigidbody of the player 
+    public Rigidbody rb;
+
+    // Public variable to store the movement speed of the gameobject player.
+    public float speed;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Debug.Log("I am alive!");
     }
 
-    public Rigidbody rb;
-
-    // Speed of movement
-    public float speed;
-
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         rb.AddForce(0, 0, speed * Time.deltaTime);
 
