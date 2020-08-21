@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -17,12 +18,10 @@ public class PlayerController : MonoBehaviour
     // Public variable to store the health of the player gameobject.
     public int health = 5;
 
+    // Public variable to store the score of the scoteText UI gameobject.
+    public Text scoreText;
 
-    // Start is called before the first frame update
-    void Start()
-    {
 
-    }
 
     // Update is called when health equals to 0.
     void Update()
@@ -91,7 +90,8 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.SetActive(false);
             score++;
-            Debug.Log("Score: " + score);
+            SetScoreText();
+            // Debug.Log("Score: " + score);
         }
         if (other.gameObject.tag == "Trap")
         {
@@ -102,5 +102,11 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("You win!");
         }
+    }
+
+    // Updates the ScoreText object with the Player‘s current score.
+    void SetScoreText()
+    {
+        scoreText.text = "Score: " + score.ToString();
     }
 }
