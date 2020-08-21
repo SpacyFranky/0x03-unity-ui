@@ -36,7 +36,11 @@ public class PlayerController : MonoBehaviour
     {
         if (health == 0)
         {
-            Debug.Log("Game Over!");
+            winloseBG.SetActive(true);
+            winloseBG.GetComponent<Image>().color = new Color(255, 0, 0);
+            winloseText.text = "Game Over!";
+            winloseText.GetComponent<Text>().color = new Color(255, 255, 255);
+            // Debug.Log("Game Over!");
             SceneManager.LoadScene("maze");
             health = 0;
             score = 0;
