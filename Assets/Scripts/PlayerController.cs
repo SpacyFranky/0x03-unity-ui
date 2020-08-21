@@ -24,6 +24,13 @@ public class PlayerController : MonoBehaviour
     // Public variable to store the score of the healthText UI gameobject.
     public Text healthText;
 
+    // Public variable to store the text of WinLoseGB UI gameobject.
+    public Text winloseText;
+
+    //
+    public GameObject winloseBG;
+    
+    
     // Update is called when health equals to 0.
     void Update()
     {
@@ -102,7 +109,11 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.tag == "Goal")
         {
-            Debug.Log("You win!");
+            winloseBG.SetActive(true);
+            winloseBG.GetComponent<Image>().color = new Color(0, 255, 0);
+            winloseText.text = "You Win!";
+            winloseText.GetComponent<Text>().color = new Color(0, 0, 0);
+            // Debug.Log("You win!");
         }
     }
 
