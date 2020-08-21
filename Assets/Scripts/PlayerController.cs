@@ -24,8 +24,6 @@ public class PlayerController : MonoBehaviour
     // Public variable to store the score of the healthText UI gameobject.
     public Text healthText;
 
-
-
     // Update is called when health equals to 0.
     void Update()
     {
