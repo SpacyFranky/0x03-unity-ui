@@ -132,4 +132,10 @@ public class PlayerController : MonoBehaviour
     {
         healthText.text = "Health: " + health.ToString();
     }
+
+    // Creates a delay where once the Player‘s health is 0 and the Game Over! text is displayed.
+    IEnumerator LoadScene(float seconds)
+    {
+        
+    }
 }
