@@ -21,6 +21,9 @@ public class PlayerController : MonoBehaviour
     // Public variable to store the score of the scoteText UI gameobject.
     public Text scoreText;
 
+    // Public variable to store the score of the healthText UI gameobject.
+    public Text healthText;
+
 
 
     // Update is called when health equals to 0.
@@ -96,7 +99,8 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Trap")
         {
             health--;
-            Debug.Log("Health: " + health);
+            SetHealthText();
+            // Debug.Log("Health: " + health);
         }
         if (other.gameObject.tag == "Goal")
         {
@@ -104,9 +108,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    // Updates the ScoreText object with the Player‘s current score.
+    // Updates the ScoreText object value with the Player‘s current score.
     void SetScoreText()
     {
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    // Updates the healthText object value with the player's current health.
+    void SetHealthText()
+    {
+        healthText.text = "Health: " + health.ToString();
     }
 }
