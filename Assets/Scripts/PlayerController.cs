@@ -41,7 +41,8 @@ public class PlayerController : MonoBehaviour
             winloseText.text = "Game Over!";
             winloseText.GetComponent<Text>().color = new Color(255, 255, 255);
             // Debug.Log("Game Over!");
-            SceneManager.LoadScene("maze");
+            StartCoroutine(LoadScene(3));
+            // SceneManager.LoadScene("maze");
             health = 0;
             score = 0;
         }
@@ -117,6 +118,7 @@ public class PlayerController : MonoBehaviour
             winloseBG.GetComponent<Image>().color = new Color(0, 255, 0);
             winloseText.text = "You Win!";
             winloseText.GetComponent<Text>().color = new Color(0, 0, 0);
+            StartCoroutine(LoadScene(3));
             // Debug.Log("You win!");
         }
     }
@@ -136,6 +138,7 @@ public class PlayerController : MonoBehaviour
     // Creates a delay where once the Player‘s health is 0 and the Game Over! text is displayed.
     IEnumerator LoadScene(float seconds)
     {
-        
+        yield return new WaitForSeconds(seconds);
+        SceneManager.LoadScene("maze");
     }
 }
