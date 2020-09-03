@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
             health = 0;
             score = 0;
         }
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("menu");
+        }
     }
 
     // Update is called once per frame
