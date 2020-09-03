@@ -10,4 +10,11 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.LoadScene("maze");
     }
+
+    // Closes the game window when the Quit button is pressed
+    public void QuitMaze()
+    {
+        Application.Quit();
+        Debug.Log("Quit Game");
+    }
 }
